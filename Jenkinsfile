@@ -46,8 +46,12 @@ spec:
         }
         stage('Deliver') {
             steps {
-                container('busybox') {
+                container('maven') {
                     sh './jenkins/scripts/deliver.sh'
+                }
+                
+                container('busybox') {
+                    sh 'echo Congratulations!! 🎉'
                 }
                 
             }
